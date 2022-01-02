@@ -2,10 +2,6 @@ def sha512(data):
     '''Algorithm to calculate hex digest from SHA-512'''
     
     ## Helper functions (shifting and rotating)
-    def leftshift(x, c):
-        """ Left shift the number x by c bytes."""
-        return x << c
-
     def rightshift(x, c):
         """ Right shift the number x by c bytes."""
         return x >> c
