@@ -48,7 +48,7 @@ def sha512(data):
     L = len(data) * 8
     ## Add a single '1' bit at the end of the input bits (cannot add one bit, therefore added byte with '1' at the beginning)
     data.append(0x80)
-    ## Padding with zeros as long as the input bits length ≡ 896 (mod 1024)
+    ## Padding with zeros as long as the input bits length = 896 (mod 1024)
     while len(data)-112 % 128: # Sizes here are in bytes, not bits!!!
         data.append(0)
     ## Append original length in bits to message, making the total post-processed length a multiple of 1024 bits
@@ -59,7 +59,7 @@ def sha512(data):
         chunks = data[offset : offset + 128]
         w = [0] * 80
 
-        # Break chunk into sixteen 128-bit = 8-bytes words w[i], 0 ≤ i ≤ 15
+        # Break chunk into sixteen 128-bit = 8-bytes words w[i], 0 <= i <= 15
         for i in range(16):
             w[i] = int.from_bytes(chunks[8*i : (i+1)*8], byteorder='big')
 
